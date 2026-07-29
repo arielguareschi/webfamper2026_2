@@ -16,7 +16,7 @@
             <br>
             Aguçando a imaginação com coisas bonitas
         </p>
-        <img src="img/doom.jpg" alt="Imagem do jogo DOOM IV" title="Imagem do jogo DOOM IV" width="500">
+        <img src="img/doom.jpg" alt="Imagem do jogo DOOM IV" title="Imagem do jogo DOOM IV">
     </header>
     <nav>
         <h2>Conteúdo da página</h2>
@@ -83,10 +83,14 @@
                     <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
                 </p>
                 <p>Voce recomenda esse jogo?</p>
-                <input type="radio" id="recomenda-sim" name="recomenda" value="sim">
-                <label for="recomenda-sim">Sim</label>
-                <input type="radio" id="recomenda-nao" name="recomenda" value="nao">
-                <label for="recomenda-nao">Não</label>
+
+                <div class="opcoes">
+                    <input type="radio" id="recomenda-sim" name="recomenda" value="sim">
+                    <label for="recomenda-sim">Sim</label>
+                    <input type="radio" id="recomenda-nao" name="recomenda" value="nao">
+                    <label for="recomenda-nao">Não</label>
+                </div>
+
                 <p>
                     <label for="comentario">Comentário:</label>
                     <textarea id="comentario" name="comentario" rows="4" cols="90"></textarea>
