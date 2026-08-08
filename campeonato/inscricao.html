@@ -32,7 +32,86 @@
         </div>
     </header>
     <main>
-        <!-- aqui vai o conteudo -->
+        <section>
+            <div class="container">
+                <h1 class="titulo-secao">Inscrição</h1>
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Dados pessoais</legend>
+                        <div class="campo"><label for="nome">Nome completo</label><input id="nome" name="nome"
+                                type="text" placeholder="Digite seu nome" required></div>
+                        <div class="campo"><label for="apelido">Apelido</label><input id="apelido" name="apelido"
+                                type="text" list="apelidos"><datalist id="apelidos">
+                                <option value="Main Character">
+                                <option value="NPC Lendário">
+                                <option value="Boss Final">
+                                <option value="Aura Master">
+                            </datalist></div>
+                        <div class="campo"><label for="email">E-mail</label><input id="email" name="email" type="email"
+                                placeholder="voce@exemplo.com" required></div>
+                        <div class="campo"><label for="senha">Senha</label><input id="senha" name="senha"
+                                type="password" minlength="6"></div>
+                        <div class="campo"><label for="nascimento">Nascimento</label><input id="nascimento"
+                                name="nascimento" type="date"></div>
+                        <div class="campo"><label for="horario">Melhor horário</label><input id="horario" name="horario"
+                                type="time"></div>
+                        <div class="campo"><label for="foto">Foto</label><input id="foto" name="foto" type="file"
+                                accept="image/*"></div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Perfil de aura</legend>
+                        <div class="campo">
+                            <label for="turma">Turma</label>
+                            <select id="turma" name="turma">
+                                <optgroup label="Primeiro ano">
+                                    <option>1º A</option>
+                                    <option>1º B</option>
+                                </optgroup>
+                                <optgroup label="Segundo ano">
+                                    <option>2º A</option>
+                                    <option>2º B</option>
+                                </optgroup>
+                                <optgroup label="Terceiro ano">
+                                    <option>3º A</option>
+                                    <option>3º B</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <p>Categoria:</p>
+                        <div class="opcoes">
+                            <label><input type="radio" name="categoria" value="iniciante"> Iniciante</label>
+                            <label><input type="radio" name="categoria" value="profissional"> Profissional</label>
+                        </div>
+                        <p>Habilidades:</p>
+                        <div class="opcoes">
+                            <label><input type="checkbox" name="habilidade" value="confianca"> Confiança</label>
+                            <label><input type="checkbox" name="habilidade" value="humor"> Humor</label>
+                            <label><input type="checkbox" name="habilidade" value="lideranca"> Liderança</label>
+                        </div>
+                        <div class="campo"><label for="nivel">Nível atual</label><input id="nivel" name="nivel"
+                                type="range" min="0" max="100" value="50"></div>
+                        <div class="campo"><label for="cor">Cor da aura</label><input id="cor" name="cor" type="color"
+                                value="#8b5cf6"></div>
+                        <div class="campo"><label for="site">Perfil ou site</label><input id="site" name="site"
+                                type="url" placeholder="https://"></div>
+                        <div class="campo"><label for="bio">Biografia</label><textarea id="bio" name="bio" rows="6"
+                                maxlength="500"></textarea></div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Confirmação</legend>
+                        <label><input type="checkbox" required> Aceito o regulamento.</label>
+                        <input type="hidden" name="temporada" value="2026">
+                    </fieldset>
+
+                    <div class="opcoes">
+                        <button class="botao" type="submit">Confirmar inscrição</button>
+                        <button class="botao secundario" type="reset">Limpar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
 
     <footer class="rodape">

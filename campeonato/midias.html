@@ -32,7 +32,59 @@
         </div>
     </header>
     <main>
-        <!-- aqui vai o conteudo -->
+        <section>
+            <div class="container">
+                <h1 class="titulo-secao">Central de Mídias</h1>
+
+                <article class="caixa-midia">
+                    <h2>Imagem responsiva com &lt;picture&gt;</h2>
+                    <picture>
+                        <source media="(max-width:600px)" srcset="imagens/banner-mobile.jpg">
+                        <source media="(min-width:601px)" srcset="imagens/banner.jpg">
+                        <img src="imagens/banner.jpg" alt="Banner oficial do Aura Championship">
+                    </picture>
+                </article>
+
+                <article class="caixa-midia">
+                    <h2>Áudio de abertura</h2>
+                    <audio controls preload="metadata">
+                        <source src="audios/abertura.mp3" type="audio/mpeg">
+                        Seu navegador não suporta áudio HTML5.
+                    </audio>
+                    <p><small>Trilha original criada exclusivamente para este projeto didático.</small></p>
+                </article>
+
+                <article class="caixa-midia">
+                    <h2>Vídeo do campeonato</h2>
+                    <video controls poster="imagens/banner.jpg" width="1280">
+                        <source src="videos/campeonato.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo HTML5.
+                    </video>
+                </article>
+
+                <h2>Galeria</h2>
+                <div class="galeria">
+                    <figure><img src="imagens/participante1.jpg" alt="Lucas">
+                        <figcaption>Lucas — entrada silenciosa</figcaption>
+                    </figure>
+                    <figure><img src="imagens/participante2.jpg" alt="Ana">
+                        <figcaption>Ana — energia de protagonista</figcaption>
+                    </figure>
+                    <figure><img src="imagens/participante3.jpg" alt="Gabriel">
+                        <figcaption>Gabriel — NPC lendário</figcaption>
+                    </figure>
+                    <figure><img src="imagens/participante4.jpg" alt="Bia">
+                        <figcaption>Bia — boss final</figcaption>
+                    </figure>
+                    <figure><img src="imagens/participante5.jpg" alt="Pedro">
+                        <figcaption>Pedro — mestre do intervalo</figcaption>
+                    </figure>
+                    <figure><img src="imagens/participante6.jpg" alt="Sofia">
+                        <figcaption>Sofia — aura suprema</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="rodape">
