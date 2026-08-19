@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="calculadora">
+        <h1>Minha calculadorinha</h1>
+        <label for="numero1">Primeiro numero:</label>
+        <input type="number" id="numero1" placeholder="Digite um numero">
+        <label for="numero2">Segundo numero:</label>
+        <input type="number" id="numero2" placeholder="Digite um numero">
+        <div class="botoes">
+            <button onclick="calcular('+')">+</button>
+            <button onclick="calcular('-')">-</button>
+            <button onclick="calcular('*')">*</button>
+            <button onclick="calcular('/')">/</button>
+        </div>
+        <p>Resultado</p>
+        <output id="resultado">0</output>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
