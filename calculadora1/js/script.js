@@ -2,7 +2,7 @@ function calcular(operacao) {
     const numero1 = Number(document.getElementById('numero1').value);
     const numero2 = Number(document.getElementById('numero2').value);
 
-    let resultado 
+    let resultado; 
     if (operacao === "+") {
         resultado = numero1 + numero2;
     } else if (operacao === "-") { 
