@@ -1,0 +1,22 @@
+<h2>Contador de toques</h2>
+<p>Você já levou {{ contador }} toques.</p>
+
+<input type="number" [(ngModel)]="passo">
+<button (click)="incrementar()">+</button>
+@if(contador > 0) {
+<button (click)="decrementar()">-</button>
+}
+<hr />
+<!-- Aqui vai exibir uma mensagem se o numero de toques forem impar
+    a mensagem deve ser "Faça mais um para garantir!" -->
+@if(contador % 2 != 0 ){
+<p>Faça mais um para garantir!</p>
+} @else {
+<p>Bom menino!</p>
+}
+<hr />
+<!-- Vamos criar um botão inteligente que quando clicar vai trocar o texto
+  de Ativar para Desativar e vice-versa. -->
+<button (click)="alternarAtivo()">
+  {{ ativo ? 'Desativar': 'Ativar' }}
+</button>

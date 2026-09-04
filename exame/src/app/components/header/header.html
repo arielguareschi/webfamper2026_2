@@ -1,0 +1,13 @@
+<h2>Perfil do aluno</h2>
+Nome: <input type="text" [(ngModel)]="nome">
+Idade: <input type="number" [(ngModel)]="idade">
+@if(idade >= 18) {
+<p>{{ nome }} você é maior de idade.</p>
+} @else {
+<p>{{ nome }} você é menor de idade.</p>
+}
+<p>O nome tem {{ contar() }} caracteres.</p>
+<button (click)="alternarAtivo()">
+  {{ ativo ? 'Desativar': 'Ativar' }}
+</button>
+<hr />
