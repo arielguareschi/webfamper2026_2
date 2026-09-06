@@ -1,1 +1,12 @@
-<p>footer works!</p>
+@for(exame of exames; track exame.id) {
+<div>
+  <h4 [ngClass]="{
+  'normal' : exame.resultado==='Normal' ,
+  'anormal' : exame.resultado==='Anormal'}">
+    {{ exame.id | strzero: 5 }} - {{exame.nome | uppercase}}</h4>
+  <p>Data: {{ exame.data | date:'dd/MM/yyyy' }}</p>
+  <p>Resultado {{ exame.resultado }}</p>
+</div>
+} @empty {
+<p>Nenhum exame encontrado.</p>
+}
