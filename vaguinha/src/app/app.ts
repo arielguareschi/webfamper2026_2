@@ -43,7 +43,7 @@ export class App {
       localizacao: 'Vargem',
       modalidade: 'Home-office',
       descricao: 'Atender quem chega no escritorio',
-      aberta: true,
+      aberta: false,
       urgente: true,
       imagem: 'https://grupoalbatroz.com.br/wp-content/uploads/2024/09/image-1586029511.png',
       requisitos: [
