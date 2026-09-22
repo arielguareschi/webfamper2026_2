@@ -52,4 +52,44 @@
   <p class="descricao">
     {{ vaga.descricao }}
   </p>
+  <button class="botao-detalhes" (click)="alterarDetalhes()">
+    {{ detalhesVisiveis ? 'Ocultar requisitos' : 'Mostrar requisitos' }}
+
+    <!-- @if (detalhesVisiveis) {
+    Ocultar requisitos
+    } @else {
+    Mostrar requisitos
+    } -->
+  </button>
+
+  @if (detalhesVisiveis) {
+  <section class="requisitos">
+    <h4>Requisitos da vaga</h4>
+    <ul>
+      @for(requisito of vaga.requisitos; track $index){
+      <li>{{ requisito }}</li>
+      } @empty {
+      <li>Nenhum requisito informado.</li>
+      }
+    </ul>
+  </section>
+  }
+
+  <div class="area-candidatura">
+    <button class="botao-candidatar" [disabled]="!vaga.aberta || candidaturaEnviada" (click)="candidatar()">
+      @if (!vaga.aberta){
+      Vaga indisponível
+      } @else if (candidaturaEnviada){
+      Candidatura enviada
+      } @else {
+      Candidatar-se
+      }
+    </button>
+  </div>
+
+  @if (candidaturaEnviada){
+  <p class="mensagem-sucesso">
+    Sua candidatura para {{ vaga.cargo }} foi enviada!
+  </p>
+  }
 </article>

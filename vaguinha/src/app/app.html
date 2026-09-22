@@ -1,3 +1,55 @@
 <app-cabecalho></app-cabecalho>
-<br>
+<main id="inicio">
+  <section class="apresentacao">
+    <div class="conteudo-apresentacao">
+      <div>
+        <span class="destaque">
+          Seu futuro começa aqui!
+        </span>
+        <h2>Encontre a vaga combina com você</h2>
+        <p>Encontre a sua oportunidade boa!</p>
+      </div>
+      <div class="painel-usuario">
+        @if (usuarioLogado){
+        <p class="mensagem-logado">Olá, <strong>{{ nomeUsuario }}</strong></p>
+        <p>Você pode consultar a favoritar as vagas</p>
+        <button class="botao-login botao-sair" (click)="alterarLogin()">Sair da conta</button>
+        }@else {
+        <p class="mensagem-deslogado">Voce ainda nao esta conectado.</p>
+        <p>Entre para acompanhara suas oportunidades</p>
+        <button class="botao-login" (click)="alterarLogin()">Entrar</button>
+        }
+      </div>
+    </div>
+  </section>
+  <section class="secao-vagas" id="vagas">
+    <div class="titulo-secao">
+      <div>
+        <span class="destaque">Oportunidade</span>
+        <h2>{{ titulo }}</h2>
+        <p>{{ subtitulo }}</p>
+      </div>
+      <div class="quantidade-vagas">
+        <strong>{{ vagas.length }}</strong>
+        @if (vagas.length === 1) {
+        <span>vaga cadastrada</span>
+        } @else {
+        <span>vagas cadastradas</span>
+        }
+      </div>
+    </div>
+    <div class="grade-vagas">
+      @for(vaga of vagas; track vaga.id){
+      <app-card-vaga [vaga]="vaga"></app-card-vaga>
+      } @empty {
+      <div class="sem-vagas">
+        <span>🔎</span>
+        <h3>Nenhuma vaga encontrada</h3>
+        <p>Não tem vaga cadastrada</p>
+      </div>
+      }
+    </div>
+  </section>
+</main>
+
 <app-rodape></app-rodape>
