@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+:root {
+  --color-primary: #1f6047;
+  --color-primary-dark: #154936;
+  --color-primary-soft: #eaf4ef;
+  --color-accent: #e7a83c;
+  --color-accent-soft: #fff5dc;
+  --color-ink: #17211d;
+  --color-muted: #66736d;
+  --color-line: #dde5e1;
+  --color-surface: #ffffff;
+  --color-background: #f5f7f6;
+  --shadow-sm: 0 8px 24px rgba(22, 54, 42, 0.07);
+  --shadow-md: 0 18px 48px rgba(22, 54, 42, 0.11);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  font-family: 'DM Sans', Arial, sans-serif;
+  color: var(--color-ink);
+  background: var(--color-background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--color-background); }
+button, input, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+.container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+.eyebrow { margin: 0 0 8px; color: var(--color-primary); font-size: .75rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+@media (max-width: 600px) { .container { width: min(100% - 24px, 1180px); } }
