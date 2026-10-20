@@ -7,9 +7,14 @@
         </svg></span>
       <span><strong>Voto</strong>Claro</span>
     </a>
-    <nav class="main-nav" aria-label="Navegação principal"><a class="active" href="#">Início</a><a
-        href="#">Resultados</a><a href="#">Sobre o processo</a></nav>
-    <div class="header-actions"><span class="live-status"><i></i> Apuração ao vivo</span><button class="menu-button"
-        type="button" aria-label="Abrir menu"><span></span><span></span><span></span></button></div>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Início</a>
+      <a routerLink="/resultado" routerLinkActive="active">Resultados</a>
+      <a routerLink="/sobre" routerLinkActive="active">Sobre o processo</a>
+    </nav>
+    <div class="header-actions">
+      <span class="live-status"><i></i> Apuração ao vivo</span>
+      <button class="menu-button" type="button" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>

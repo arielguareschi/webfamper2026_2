@@ -3,11 +3,11 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": "873915d4-8c70-42bd-ad42-d9e394e969d1"
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
-    "apuracao": {
+    "escolinha": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "apuracao:build:production"
+              "buildTarget": "escolinha:build:production"
             },
             "development": {
-              "buildTarget": "apuracao:build:development"
+              "buildTarget": "escolinha:build:development"
             }
           },
           "defaultConfiguration": "development"
