@@ -1,5 +1,20 @@
 # Escolinha
 
+## Comandos para criar o projeto
+```
+ng new escolinha
+cd escolinha
+ng g c pages/inicio
+ng g c pages/alunos
+ng g c pages/cadastrar
+ng g c pages/editar
+ng g s services/aluno
+ng g i models/aluno
+code .
+
+ng g s services/alunoLocal
+```
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.22.
 
 ## Development server

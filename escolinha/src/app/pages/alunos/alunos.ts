@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AlunoService } from '../../services/aluno';
+import { AlunoLocalService } from '../../services/aluno-local';
 
 @Component({
   selector: 'app-alunos',
@@ -9,7 +9,7 @@ import { AlunoService } from '../../services/aluno';
   styleUrl: './alunos.css',
 })
 export class Alunos {
-  private alunoService = inject(AlunoService);
+  private alunoService = inject(AlunoLocalService);
 
   alunos = this.alunoService.listar();
 

@@ -1,1 +1,26 @@
-<p>editar works!</p>
+<h2>Editar Aluno</h2>
+@if(aluno){
+<form (ngSubmit)="salvar()">
+  <p>
+    <label for="id">ID:</label>
+    <input type="number" [value]="aluno.id" disabled name="id" id="id" />
+  </p>
+  <p>
+    <label for="nome">Nome:</label>
+    <input type="text" [(ngModel)]="aluno.nome" name="nome" id="nome" />
+  </p>
+  <p>
+    <label for="email">E-mail:</label>
+    <input type="email" [(ngModel)]="aluno.email" name="email" id="email" />
+  </p>
+  <p>
+    <label for="curso">Curso:</label>
+    <input type="text" [(ngModel)]="aluno.curso" name="curso" id="curso" />
+  </p>
+  <button type="submit">Salvar</button>
+  <a routerLink="/alunos">Cancelar</a>
+</form>
+} @else {
+<p>Aluno não encontrado.</p>
+<a routerLink="/alunos">Voltar</a>
+}

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AlunoService } from '../../services/aluno';
+import { AlunoLocalService } from '../../services/aluno-local';
 
 @Component({
   selector: 'app-cadastrar',
@@ -10,7 +10,7 @@ import { AlunoService } from '../../services/aluno';
   styleUrl: './cadastrar.css',
 })
 export class Cadastrar {
-  private alunoService = inject(AlunoService);
+  private alunoService = inject(AlunoLocalService);
   private router = inject(Router);
 
   nome = '';
