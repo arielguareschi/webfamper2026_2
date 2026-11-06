@@ -1,5 +1,5 @@
 export interface Conteudo {
-  id: number;
+  id: string;
   categoria: string;
   titulo: string;
   icone: string;

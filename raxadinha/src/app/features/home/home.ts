@@ -15,7 +15,7 @@ export class Home {
 
   constructor(conteudosService: ConteudosService) {
     this.conteudosDestaque$ = conteudosService
-      .listar()
+      .getAll()
       .pipe(map((conteudos) => conteudos.slice(0, 10)));
   }
 
