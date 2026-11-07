@@ -13,7 +13,7 @@ export class Admin {
   private router = inject(Router);
 
   conteudos: Conteudo[] = [];
-  loading = true;
+  loading = false;
   errorMessage = "";
   sucessMessage = "";
 
