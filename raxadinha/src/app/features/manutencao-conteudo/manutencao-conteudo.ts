@@ -87,8 +87,39 @@ export class ManutencaoConteudo {
       formato: formValue.formato,
       acesso: formValue.acesso,
       preco: formValue.preco,
+      beneficios: [],
+      ativo: formValue.ativo,
     };
     if (this.editingId !== null) {
+      this.conteudosService.update(this.editingId, conteudoData).subscribe({
+        next: () => {
+          this.loading = false;
+          this.successMessage = "Conteúdo atualizado com sucesso!";
+          setTimeout(() => {
+            this.router.navigate(["/admin"]);
+          }, 1000);
+        },
+        error: () => {
+          this.loading = false;
+          this.errorMessage = "Erro ao atualizar conteúdo.";
+        },
+      });
+      return;
     }
+
+    this.conteudosService.create(conteudoData).subscribe({
+      next: () => {
+        this.loading = false;
+        this.successMessage = "Conteúdo criado com sucesso!";
+        this.form.reset();
+        setTimeout(() => {
+          this.router.navigate(["/admin"]);
+        }, 1000);
+      },
+      error: () => {
+        this.loading = false;
+        this.errorMessage = "Erro ao criar conteúdo.";
+      },
+    });
   }
 }

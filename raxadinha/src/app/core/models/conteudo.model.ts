@@ -3,7 +3,7 @@ export interface Conteudo {
   categoria: string;
   titulo: string;
   icone: string;
-  cor: "azul" | "dourado" | "verde" | "lilas" | "coral";
+  cor: string;
   resumo: string;
   descricao: string;
   autor: string;
