@@ -11,4 +11,5 @@ export interface Conteudo {
   acesso: string;
   preco: number;
   beneficios: string[];
+  ativo: boolean;
 }

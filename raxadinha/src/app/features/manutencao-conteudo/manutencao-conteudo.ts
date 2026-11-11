@@ -1,10 +1,10 @@
 import { Component, inject } from "@angular/core";
-import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import { FormArray, FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ConteudosService } from "../../core/services/conteudos.service";
 @Component({
   selector: "app-manutencao-conteudo",
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: "./manutencao-conteudo.html",
   styleUrl: "./manutencao-conteudo.css",
 })
@@ -30,9 +30,28 @@ export class ManutencaoConteudo {
     autor: ["", [Validators.required]],
     formato: ["", [Validators.required]],
     acesso: ["", [Validators.required]],
-    preco: [0, [Validators.required]],
+    preco: [0, [Validators.required, Validators.min(0)]],
+    beneficios: this.fb.array([this.createBeneficioControl()]),
     ativo: [true],
   });
+
+  get beneficios(): FormArray {
+    return this.form.controls.beneficios;
+  }
+
+  private createBeneficioControl(value = "") {
+    return this.fb.nonNullable.control(value, [Validators.required]);
+  }
+
+  adicionarBeneficio(): void {
+    this.beneficios.push(this.createBeneficioControl());
+  }
+
+  removerBeneficio(index: number): void {
+    if (this.beneficios.length > 1) {
+      this.beneficios.removeAt(index);
+    }
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.queryParamMap.get("id");
@@ -46,6 +65,11 @@ export class ManutencaoConteudo {
     this.loadingData = true;
     this.conteudosService.getById(id).subscribe({
       next: (conteudo) => {
+        this.beneficios.clear();
+        const beneficios = conteudo.beneficios?.length ? conteudo.beneficios : [""];
+        beneficios.forEach((beneficio) =>
+          this.beneficios.push(this.createBeneficioControl(beneficio)),
+        );
         this.form.patchValue({
           titulo: conteudo.titulo,
           categoria: conteudo.categoria,
@@ -57,6 +81,7 @@ export class ManutencaoConteudo {
           formato: conteudo.formato,
           acesso: conteudo.acesso,
           preco: conteudo.preco,
+          ativo: conteudo.ativo ?? true,
         });
         this.loadingData = false;
       },
@@ -87,7 +112,7 @@ export class ManutencaoConteudo {
       formato: formValue.formato,
       acesso: formValue.acesso,
       preco: formValue.preco,
-      beneficios: [],
+      beneficios: formValue.beneficios,
       ativo: formValue.ativo,
     };
     if (this.editingId !== null) {
@@ -112,6 +137,8 @@ export class ManutencaoConteudo {
         this.loading = false;
         this.successMessage = "Conteúdo criado com sucesso!";
         this.form.reset();
+        this.beneficios.clear();
+        this.beneficios.push(this.createBeneficioControl());
         setTimeout(() => {
           this.router.navigate(["/admin"]);
         }, 1000);

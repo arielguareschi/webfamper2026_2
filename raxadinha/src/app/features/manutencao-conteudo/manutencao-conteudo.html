@@ -6,4 +6,102 @@
         Adicionar Conteúdo
         }
     </h2>
+
+    @if(loadingData){
+    <div class="info-message">
+        Carregando dados do conteúdo...
+    </div>
+    }
+    @if(successMessage){
+    <div class="success-message">
+        {{ successMessage }}
+    </div>
+    }
+    @if(errorMessage){
+    <div class="error-message">
+        {{ errorMessage }}
+    </div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="field">
+            <label for="categoria">Categoria:</label>
+            <input id="categoria" type="text" formControlName="categoria" />
+            <span class="character-count">
+                {{ form.controls.categoria.value.length }} caracteres
+            </span>
+
+            @if (form.controls.categoria.touched &&
+            form.controls.categoria.invalid) {
+            <small>Informe uma categoria com no minimo 3 caracteres</small>
+            }
+        </div>
+
+
+        <div class="field">
+            <label for="titulo">Título:</label>
+            <input id="titulo" type="text" formControlName="titulo" />
+            <span class="character-count">{{ form.controls.titulo.value.length }} caracteres</span>
+            @if (form.controls.titulo.touched && form.controls.titulo.invalid) {
+            <small>Informe um título com no mínimo 15 caracteres</small>
+            }
+        </div>
+        <div class="field"><label for="icone">Ícone:</label><input id="icone" type="text" formControlName="icone" />
+            @if (form.controls.icone.touched && form.controls.icone.invalid) { <small>Informe um ícone</small> }
+        </div>
+        <div class="field"><label for="cor">Cor:</label><input id="cor" type="text" formControlName="cor" />
+            @if (form.controls.cor.touched && form.controls.cor.invalid) { <small>Informe uma cor</small> }
+        </div>
+        <div class="field"><label for="resumo">Resumo:</label><textarea id="resumo" formControlName="resumo"
+                rows="3"></textarea>
+            <span class="character-count">{{ form.controls.resumo.value.length }} caracteres</span>
+            @if (form.controls.resumo.touched && form.controls.resumo.invalid) { <small>Informe um resumo</small> }
+        </div>
+        <div class="field"><label for="descricao">Descrição:</label><textarea id="descricao" formControlName="descricao"
+                rows="6"></textarea>
+            <span class="character-count">{{ form.controls.descricao.value.length }} caracteres</span>
+            @if (form.controls.descricao.touched && form.controls.descricao.invalid) { <small>Informe uma
+                descrição</small> }
+        </div>
+        <div class="field"><label for="autor">Autor:</label><input id="autor" type="text" formControlName="autor" />
+            @if (form.controls.autor.touched && form.controls.autor.invalid) { <small>Informe o autor</small> }
+        </div>
+        <div class="field"><label for="formato">Formato:</label><input id="formato" type="text"
+                formControlName="formato" />
+            @if (form.controls.formato.touched && form.controls.formato.invalid) { <small>Informe o formato</small> }
+        </div>
+        <div class="field"><label for="acesso">Acesso:</label><input id="acesso" type="text" formControlName="acesso" />
+            @if (form.controls.acesso.touched && form.controls.acesso.invalid) { <small>Informe o tipo de acesso</small>
+            }
+        </div>
+        <div class="field"><label for="preco">Preço:</label><input id="preco" type="number" formControlName="preco"
+                min="0" step="0.01" />
+            @if (form.controls.preco.touched && form.controls.preco.invalid) { <small>Informe um preço maior ou igual a
+                zero</small> }
+        </div>
+        <fieldset class="field beneficios" formArrayName="beneficios">
+            <legend>Benefícios:</legend>
+            @for (beneficio of beneficios.controls; track $index; let i = $index) {
+            <div class="beneficio-item"><input type="text" [formControlName]="i"
+                    [attr.aria-label]="'Benefício ' + (i + 1)" />
+                <button type="button" class="remove-button" (click)="removerBeneficio(i)"
+                    [disabled]="beneficios.length === 1">Remover</button>
+            </div>
+            @if (beneficio.touched && beneficio.invalid) { <small>Informe o benefício</small> }
+            }
+            <button type="button" class="add-button" (click)="adicionarBeneficio()">Adicionar benefício</button>
+        </fieldset>
+        <div class="field checkbox-field"><input id="ativo" type="checkbox" formControlName="ativo" /><label
+                for="ativo">Conteúdo ativo</label></div>
+
+        <button type="submit" [disabled]="loading || loadingData">
+            @if (loading) {
+            Salvando...
+            } @else if (editingId !== null) {
+            Atualizar
+            } @else {
+            Salvar
+            }
+        </button>
+    </form>
 </div>
