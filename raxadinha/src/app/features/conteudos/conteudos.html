@@ -1,3 +1,23 @@
-<h1>Conteúdos disponíveis</h1>
-<p>Aqui será implementada a listagem pública dos conteúdos cadastrados.</p>
-<p>Por enquanto, esta página apresenta somente a estrutura inicial.</p>
+<section class="vitrine" aria-labelledby="titulo-vitrine">
+    <div class="vitrine-cabecalho">
+        <div>
+            <h2 id="titulo-vitrine">Lista de Conteúdos</h2>
+        </div>
+    </div>
+    <div class="trilho">
+        @for (conteudo of conteudos(); track conteudo.id) {
+        <article class="card-conteudo">
+            <div class="capa" [class]="'capa ' + conteudo.cor">
+                <span>{{ conteudo.icone }}</span>
+                <small>Raxadinha</small>
+            </div>
+            <div class="card-corpo">
+                <span class="categoria">{{ conteudo.categoria }}</span>
+                <h3>{{ conteudo.titulo }}</h3>
+                <a [routerLink]="['/conteudos', conteudo.id]" [attr.aria-label]="'Conhecer ' + conteudo.titulo">Conhecer
+                    <span>→</span></a>
+            </div>
+        </article>
+        }
+    </div>
+</section>
