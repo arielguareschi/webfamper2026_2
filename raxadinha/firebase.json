@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/raxadinha/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
